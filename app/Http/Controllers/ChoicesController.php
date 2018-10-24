@@ -16,7 +16,7 @@ class ChoicesController extends Controller
 
 	public function index()
 	{
-		$choices = Choice::paginate();
+		$choices = Choice::with('user', 'category')->paginate(30);
 		return view('choices.index', compact('choices'));
 	}
 
