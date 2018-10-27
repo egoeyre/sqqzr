@@ -12,7 +12,7 @@ class CreateBlanksTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
             $table->text('title');
-            $table->string('anwser');
+            $table->string('answer');
             $table->integer('amount')->unsigned();
             $table->timestamps();
         });

@@ -9,7 +9,7 @@ $factory->define(App\Models\Blank::class, function (Faker $faker) {
 
     return [
         'title'		=> $faker->sentence(),
-        'anwser'	=> $faker->word(),
+        'answer'	=> $faker->word(),
         'amount'	=> $faker->randomElement($num),
         'created_at' => $created_at,
         'updated_at' => $updated_at,

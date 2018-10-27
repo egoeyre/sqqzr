@@ -43,8 +43,8 @@
                 	<textarea name="title" id="title-field" class="form-control" rows="3">{{ old('title', $blank->title ) }}</textarea>
                 </div> 
                 <div class="form-group">
-                	<label for="anwser-field">Anwser</label>
-                	<input class="form-control" type="text" name="anwser" id="anwser-field" value="{{ old('anwser', $blank->anwser ) }}" />
+                	<label for="answer-field">answer</label>
+                	<input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" />
                 </div> 
                 <div class="form-group">
                     <label for="amount-field">Amount</label>

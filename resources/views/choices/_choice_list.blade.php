@@ -18,27 +18,12 @@
                         <a class="pull-right" href="{{ route('choices.show', [$choice->id]) }}" >
                             <span class="badge"> {{ $choice->answer }} </span>
                         </a>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <th>A:</th>
-                                    <td>{{ $choice->optiona }}</td>
-                                </tr>
-                                <tr>
-                                    <th>B:</th>
-                                    <td>{{ $choice->optionb }}</td>
-                                </tr>
-                                <tr>
-                                    <th>C:</th>
-                                    <td>{{ $choice->optionc }}</td>
-                                </tr>
-                                <tr>
-                                    <th>D:</th>
-                                    <td>{{ $choice->optiond }}</td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
+                        <ol type="A">
+                            <li>{{ $choice->optiona }}</li>
+                            <li>{{ $choice->optionb }}</li>
+                            <li>{{ $choice->optionc }}</li>
+                            <li>{{ $choice->optiond }}</li>
+                        </ol>
 
                     </div>
                     

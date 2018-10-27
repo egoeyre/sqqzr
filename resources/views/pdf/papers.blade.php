@@ -39,5 +39,16 @@
         </ol> 
     </div>
 
+    <div>
+        <h3>二 填空题</h3>
+        <ol>
+            @foreach ($blanks as $blank)
+            <li>
+                <p>{{ $blank->title  }}</p>
+            </li>
+            @endforeach
+        </ol> 
+    </div>
+
 </body>
 </html>

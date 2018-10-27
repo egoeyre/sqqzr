@@ -32,9 +32,9 @@
 </p> <label>Title</label>
 <p>
 	{{ $blank->title }}
-</p> <label>Anwser</label>
+</p> <label>answer</label>
 <p>
-	{{ $blank->anwser }}
+	{{ $blank->answer }}
 </p> <label>Amount</label>
 <p>
 	{{ $blank->amount }}
