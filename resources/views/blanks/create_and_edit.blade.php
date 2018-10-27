@@ -43,7 +43,7 @@
                     </div> 
                     <div class="form-group">
                         <label for="answer-field">正确答案</label>
-                        <input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" placeholder="请填写正确答案，不同填空建议用/分隔" required/>
+                        <input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" placeholder="请填写正确答案，不同填空内容建议用/分隔" required/>
                     </div>
                     <div class="form-group">
                         <label for="amount-field">填空数量</label>

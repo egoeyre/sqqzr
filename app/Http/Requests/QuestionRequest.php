@@ -8,19 +8,17 @@ class QuestionRequest extends Request
     {
         switch($this->method())
         {
-            // CREATE
+           // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
             // UPDATE
             case 'PUT':
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'category_id' => 'required|numeric',
+                    'title' => 'required|min:3',
+                    'answer' => 'required|min:3',
+                    
                 ];
             }
             case 'GET':
@@ -35,7 +33,8 @@ class QuestionRequest extends Request
     public function messages()
     {
         return [
-            // Validation messages
+            'title.min' => '题目必须至少三个字符',
+            'answer.min' => '答案至少三个字符',
         ];
     }
 }

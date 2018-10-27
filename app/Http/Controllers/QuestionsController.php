@@ -6,12 +6,14 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
+use App\Models\Category;
+use Auth;
 
 class QuestionsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth');
     }
 
 	
@@ -28,12 +30,15 @@ class QuestionsController extends Controller
 
 	public function create(Question $question)
 	{
-		return view('questions.create_and_edit', compact('question'));
+		$categories = Category::all();
+		return view('questions.create_and_edit', compact('question', 'categories'));
 	}
 
-	public function store(QuestionRequest $request)
+	public function store(QuestionRequest $request, Question $question)
 	{
-		$question = Question::create($request->all());
+		$question->fill($request->all());
+        $question->user_id = Auth::id();
+        $question->save();
 		return redirect()->route('questions.show', $question->id)->with('message', 'Created successfully.');
 	}
 

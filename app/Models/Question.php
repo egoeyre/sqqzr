@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Question extends Model
 {
-    protected $fillable = ['user_id', 'category_id', 'title', 'answer'];
+    protected $fillable = ['category_id', 'title', 'answer'];
 
     public function category()
     {
