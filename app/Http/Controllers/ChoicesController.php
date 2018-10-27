@@ -16,7 +16,11 @@ class ChoicesController extends Controller
 
 	public function index()
 	{
+		//dd($choices);
 		$choices = Choice::with('user', 'category')->paginate(30);
+		//$choices = Choice::paginate(30);
+
+		
 		return view('choices.index', compact('choices'));
 	}
 

@@ -6,8 +6,9 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "barryvdh/laravel-dompdf": "^0.8.3",
+        "barryvdh/laravel-snappy": "^0.4.3",
         "fideloper/proxy": "~3.3",
+        "h4cc/wkhtmltopdf-amd64": "0.12.x",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "overtrue/laravel-lang": "~3.0"
