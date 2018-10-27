@@ -50,5 +50,18 @@
         </ol> 
     </div>
 
+    <div>
+        <h3>三 问答题</h3>
+        <ol>
+            @foreach ($questions as $question)
+            <li>
+                <p>{{ $question->title  }}</p>
+                <br><br><br><br><br><br><br><br><br><br><br>
+            </li>
+
+            @endforeach
+        </ol> 
+    </div>
+
 </body>
 </html>

@@ -8,9 +8,9 @@ $factory->define(App\Models\Blank::class, function (Faker $faker) {
     $created_at = $faker->dateTimeThisMonth($updated_at);
 
     return [
-        'title'		=> $faker->sentence(),
-        'answer'	=> $faker->word(),
-        'amount'	=> $faker->randomElement($num),
+        'title'     => $faker->sentence(),
+        'answer'    => $faker->word(),
+        'amount'    => $faker->randomElement($num),
         'created_at' => $created_at,
         'updated_at' => $updated_at,
     ];

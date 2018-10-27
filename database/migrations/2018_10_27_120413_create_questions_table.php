@@ -12,7 +12,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('category_id')->unsigned()->index();
             $table->text('title');
-            $table->text('anwser');
+            $table->text('answer');
             $table->timestamps();
         });
 	}

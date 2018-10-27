@@ -38,7 +38,13 @@
         {{-- 用户发布的内容 --}}
         <div class="panel panel-default">
             <div class="panel-body">
-                暂无数据 ~_~
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#">Ta 出的选择题</a></li>
+                    <li><a href="#">Ta 出的填空题</a></li>
+                    <li><a href="#">Ta 出的问答题</a></li>
+                    <li><a href="#">Ta 出的报告单</a></li>
+                </ul>
+                @include('users._choices', ['choices' => $user->choices()->recent()->paginate(10)])
             </div>
         </div>
 

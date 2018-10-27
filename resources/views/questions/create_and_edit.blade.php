@@ -43,8 +43,8 @@
                 	<textarea name="title" id="title-field" class="form-control" rows="3">{{ old('title', $question->title ) }}</textarea>
                 </div> 
                 <div class="form-group">
-                	<label for="anwser-field">Anwser</label>
-                	<textarea name="anwser" id="anwser-field" class="form-control" rows="3">{{ old('anwser', $question->anwser ) }}</textarea>
+                	<label for="answer-field">answer</label>
+                	<textarea name="answer" id="answer-field" class="form-control" rows="3">{{ old('answer', $question->answer ) }}</textarea>
                 </div>
 
                     <div class="well well-sm">

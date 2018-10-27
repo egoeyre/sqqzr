@@ -14,9 +14,10 @@ class QuestionsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
+	
 	public function index()
 	{
-		$questions = Question::paginate();
+		$questions = Question::with('user', 'category')->paginate(30);
 		return view('questions.index', compact('questions'));
 	}
 

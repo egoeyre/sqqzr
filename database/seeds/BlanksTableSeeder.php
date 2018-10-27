@@ -19,7 +19,7 @@ class BlanksTableSeeder extends Seeder
          // 获取 Faker 实例
         $faker = app(Faker\Generator::class);
 
-        $choices = factory(Blank::class)
+        $blanks = factory(Blank::class)
         			->times(100)
         			->make()
         			->each(function ($blank, $index)
@@ -33,7 +33,7 @@ class BlanksTableSeeder extends Seeder
         });
 
         // 将数据集合转换为数组，并插入到数据库中
-        Blank::insert($choices->toArray());
+        Blank::insert($blanks->toArray());
     }
 
 }
