@@ -25,3 +25,4 @@ Route::resource('choices', 'ChoicesController', ['only' => ['index', 'show', 'cr
 
 Route::get('/pdf', 'PDFController@make');
 Route::resource('blanks', 'BlanksController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+Route::resource('questions', 'QuestionsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
