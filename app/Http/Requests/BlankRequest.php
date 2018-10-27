@@ -8,19 +8,18 @@ class BlankRequest extends Request
     {
         switch($this->method())
         {
-            // CREATE
+           // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
             // UPDATE
             case 'PUT':
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'category_id' => 'required|numeric',
+                    'title' => 'required|min:3',
+                    'answer' => 'required|min:1',
+                    'amount' => 'required|numeric'
+                    
                 ];
             }
             case 'GET':
@@ -35,7 +34,9 @@ class BlankRequest extends Request
     public function messages()
     {
         return [
-            // Validation messages
+            'title.min' => '题目必须至少三个字符',
+            'answer.min' => '答案至少一个字符',
+            'amount.numeric' => '填空数量必须是数字'
         ];
     }
 }

@@ -5,21 +5,21 @@
 <div class="container">
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
-            
-            <div class="panel-heading">
-                <h1>
-                    <i class="glyphicon glyphicon-edit"></i> Blank /
-                    @if($blank->id)
-                        Edit #{{$blank->id}}
-                    @else
-                        Create
-                    @endif
-                </h1>
-            </div>
-
-            @include('common.error')
 
             <div class="panel-body">
+                <h2 class="text-center">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    @if($blank->id)
+                        编辑填空题
+                    @else
+                        新建填空题
+                    @endif
+                </h2>
+
+                <hr>
+
+                @include('common.error')
+
                 @if($blank->id)
                     <form action="{{ route('blanks.update', $blank->id) }}" method="POST" accept-charset="UTF-8">
                         <input type="hidden" name="_method" value="PUT">
@@ -28,32 +28,31 @@
                 @endif
 
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <select class="form-control" name="category_id" required>
+                            <option value="" hidden disabled selected>请选择分类</option>
+                            @foreach ($categories as $value)
+                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
 
-                    
-                <div class="form-group">
-                    <label for="user_id-field">User_id</label>
-                    <input class="form-control" type="text" name="user_id" id="user_id-field" value="{{ old('user_id', $blank->user_id ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="category_id-field">Category_id</label>
-                    <input class="form-control" type="text" name="category_id" id="category_id-field" value="{{ old('category_id', $blank->category_id ) }}" />
-                </div> 
-                <div class="form-group">
-                	<label for="title-field">Title</label>
-                	<textarea name="title" id="title-field" class="form-control" rows="3">{{ old('title', $blank->title ) }}</textarea>
-                </div> 
-                <div class="form-group">
-                	<label for="answer-field">answer</label>
-                	<input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" />
-                </div> 
-                <div class="form-group">
-                    <label for="amount-field">Amount</label>
-                    <input class="form-control" type="text" name="amount" id="amount-field" value="{{ old('amount', $blank->amount ) }}" />
-                </div>
+                    <div class="form-group">
+                        <label for="title-field">题目</label>
+                        <textarea name="title" id="title-field" class="form-control" rows="3" placeholder="请填写题目" required>{{ old('title', $blank->title ) }}</textarea>
+                    </div> 
+                    <div class="form-group">
+                        <label for="answer-field">正确答案</label>
+                        <input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" placeholder="请填写正确答案，不同填空建议用/分隔" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount-field">填空数量</label>
+                        <input class="form-control" type="text" name="amount" id="amount-field" value="{{ old('amount', $blank->amount ) }}" placeholder="请填写填空数量" required/>
+                    </div>
+
 
                     <div class="well well-sm">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <a class="btn btn-link pull-right" href="{{ route('blanks.index') }}"><i class="glyphicon glyphicon-backward"></i>  Back</a>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 保存</button>
                     </div>
                 </form>
             </div>

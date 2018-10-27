@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Blank extends Model
 {
-    protected $fillable = ['user_id', 'category_id', 'title', 'answer', 'amount'];
+    protected $fillable = ['category_id', 'title', 'answer', 'amount'];
 
     public function category()
     {

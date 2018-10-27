@@ -6,6 +6,8 @@ use App\Models\Blank;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlankRequest;
+use App\Models\Category;
+use Auth;
 
 class BlanksController extends Controller
 {
@@ -27,12 +29,15 @@ class BlanksController extends Controller
 
 	public function create(Blank $blank)
 	{
-		return view('blanks.create_and_edit', compact('blank'));
+		$categories = Category::all();
+		return view('blanks.create_and_edit', compact('blank', 'categories'));
 	}
 
-	public function store(BlankRequest $request)
+	public function store(BlankRequest $request, Blank $blank)
 	{
-		$blank = Blank::create($request->all());
+		$blank->fill($request->all());
+        $blank->user_id = Auth::id();
+        $blank->save();
 		return redirect()->route('blanks.show', $blank->id)->with('message', 'Created successfully.');
 	}
 
