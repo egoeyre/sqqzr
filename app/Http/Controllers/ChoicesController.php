@@ -6,12 +6,14 @@ use App\Models\Choice;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ChoiceRequest;
+use App\Models\Category;
+use Auth;
 
 class ChoicesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth');
     }
 
 	public function index()
@@ -31,12 +33,15 @@ class ChoicesController extends Controller
 
 	public function create(Choice $choice)
 	{
-		return view('choices.create_and_edit', compact('choice'));
+		$categories = Category::all();
+		return view('choices.create_and_edit', compact('choice','categories'));
 	}
 
-	public function store(ChoiceRequest $request)
+	public function store(ChoiceRequest $request, Choice $choice)
 	{
-		$choice = Choice::create($request->all());
+		$choice->fill($request->all());
+		$choice->user_id = Auth::id();
+		$choice->save();
 		return redirect()->route('choices.show', $choice->id)->with('message', 'Created successfully.');
 	}
 

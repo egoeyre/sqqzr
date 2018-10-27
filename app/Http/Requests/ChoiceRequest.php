@@ -10,17 +10,19 @@ class ChoiceRequest extends Request
         {
             // CREATE
             case 'POST':
-            {
-                return [
-                    // CREATE ROLES
-                ];
-            }
             // UPDATE
             case 'PUT':
             case 'PATCH':
             {
                 return [
-                    // UPDATE ROLES
+                    'category_id' => 'required|numeric',
+                    'title' => 'required|min:3',
+                    'optiona' => 'required|min:1',
+                    'optionb' => 'required|min:1',
+                    'optionc' => 'required|min:1',
+                    'optiond' => 'required|min:1',
+                    'answer' => 'required|min:1',
+                    
                 ];
             }
             case 'GET':
@@ -35,7 +37,12 @@ class ChoiceRequest extends Request
     public function messages()
     {
         return [
-            // Validation messages
+            'title.min' => '题目必须至少三个字符',
+            'optiona.min' => '选项A内容必须至少一个字符',
+            'optionb.min' => '选项B内容必须至少一个字符',
+            'optionc.min' => '选项C内容必须至少一个字符',
+            'optiond.min' => '选项D内容必须至少一个字符',
+            'optiona.min' => '填入A或者B或者C或者D',
         ];
     }
 }

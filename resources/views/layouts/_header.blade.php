@@ -1,68 +1,92 @@
 <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+    <div class="container">
+        <div class="navbar-header">
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+            <!-- Collapsed Hamburger -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
+                <span class="sr-only">Toggle Navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+            <!-- Branding Image -->
+            <a class="navbar-brand" href="{{ url('/') }}">
+                {{ config('app.name', 'Laravel') }}
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
+            <!-- Left Side Of Navbar -->
+            <ul class="nav navbar-nav">
+                &nbsp;
+            </ul>
+
+            <!-- Right Side Of Navbar -->
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @guest
+                <li><a href="{{ route('login') }}">登录</a></li>
+                <li><a href="{{ route('register') }}">注册</a></li>
+                @else
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        新建&nbsp&nbsp<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </a>
-                </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ route('choices.create', Auth::id()) }}">                            
+                                选择题
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('blanks.create', Auth::id()) }}">                          
+                                填空题
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('questions.create', Auth::id()) }}">
+                                问答题
+                            </a>
+                        </li>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
                     </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">登录</a></li>
-                            <li><a href="{{ route('register') }}">注册</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ route('users.show', Auth::id()) }}">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                个人中心
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('users.edit', Auth::id()) }}">
+                               <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                               编辑资料
+                           </a>
+                       </li>
+                       <li>
+                        <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                        退出登录
+                    </a>
 
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('users.show', Auth::id()) }}">
-                                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                            个人中心
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('users.edit', Auth::id()) }}">
-                                             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
-                                             编辑资料
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-                                            退出登录
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            </ul>
+        </li>
+        @endguest
+    </ul>
+</div>
+</div>
+</nav>
