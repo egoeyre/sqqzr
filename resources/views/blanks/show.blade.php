@@ -43,15 +43,23 @@
                     <h3>答案 ：{!! $blank->answer !!}</h3>
                 </div>
 
-                <div class="operate">
-                    <hr>
-                    <a href="{{ route('blanks.edit', $blank->id) }}" class="btn btn-default btn-xs" role="button">
-                        <i class="glyphicon glyphicon-edit"></i> 编辑
-                    </a>
-                    <a href="#" class="btn btn-default btn-xs" role="button">
-                        <i class="glyphicon glyphicon-trash"></i> 删除
-                    </a>
-                </div>
+                @can('update', $blank)
+                    <div class="operate">
+                        <hr>
+                        <a href="{{ route('blanks.edit', $blank->id) }}" class="btn btn-default btn-xs pull-left" role="button">
+                            <i class="glyphicon glyphicon-edit"></i> 编辑
+                        </a>
+
+                        <form action="{{ route('blanks.destroy', $blank->id) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-default btn-xs pull-left" style="margin-left: 6px">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                删除
+                            </button>
+                        </form>
+                    </div>
+                @endcan
 
             </div>
         </div>

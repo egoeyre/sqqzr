@@ -9,11 +9,11 @@ class ChoicePolicy extends Policy
 {
     public function update(User $user, Choice $choice)
     {
-        return $choice->user_id == $user->id;
+        return $user->isAuthorOf($choice);
     }
 
     public function destroy(User $user, Choice $choice)
     {
-        return true;
+         return $user->isAuthorOf($choice);
     }
 }

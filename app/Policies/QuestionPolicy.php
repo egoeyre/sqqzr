@@ -9,11 +9,11 @@ class QuestionPolicy extends Policy
 {
     public function update(User $user, Question $question)
     {
-        return $question->user_id == $user->id;
+         return $user->isAuthorOf($question);
     }
 
     public function destroy(User $user, Question $question)
     {
-        return true;
+         return $user->isAuthorOf($question);
     }
 }

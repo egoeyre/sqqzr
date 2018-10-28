@@ -9,11 +9,11 @@ class BlankPolicy extends Policy
 {
     public function update(User $user, Blank $blank)
     {
-        return $blank->user_id == $user->id;
+        return $user->isAuthorOf($blank);
     }
 
     public function destroy(User $user, Blank $blank)
     {
-        return true;
+        return $user->isAuthorOf($blank);
     }
 }
