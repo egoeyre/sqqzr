@@ -41,10 +41,11 @@ class BlanksController extends Controller
 		return redirect()->route('blanks.show', $blank->id)->with('message', 'Created successfully.');
 	}
 
-	public function edit(Blank $blank)
+	public function edit(BlankRequest $request, Blank $blank)
 	{
         $this->authorize('update', $blank);
-		return view('blanks.create_and_edit', compact('blank'));
+        $categories = Category::all();
+		return view('blanks.create_and_edit', compact('blank', 'categories'));
 	}
 
 	public function update(BlankRequest $request, Blank $blank)

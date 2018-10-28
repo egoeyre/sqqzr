@@ -9,8 +9,7 @@ class QuestionPolicy extends Policy
 {
     public function update(User $user, Question $question)
     {
-        // return $question->user_id == $user->id;
-        return true;
+        return $question->user_id == $user->id;
     }
 
     public function destroy(User $user, Question $question)

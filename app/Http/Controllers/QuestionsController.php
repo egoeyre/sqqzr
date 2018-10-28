@@ -42,10 +42,11 @@ class QuestionsController extends Controller
 		return redirect()->route('questions.show', $question->id)->with('message', 'Created successfully.');
 	}
 
-	public function edit(Question $question)
+	public function edit(QuestionRequest $request, Question $question)
 	{
         $this->authorize('update', $question);
-		return view('questions.create_and_edit', compact('question'));
+        $categories = Category::all();
+		return view('questions.create_and_edit', compact('question', 'categories'));
 	}
 
 	public function update(QuestionRequest $request, Question $question)

@@ -45,10 +45,11 @@ class ChoicesController extends Controller
 		return redirect()->route('choices.show', $choice->id)->with('message', 'Created successfully.');
 	}
 
-	public function edit(Choice $choice)
+	public function edit(ChoiceRequest $request, Choice $choice)
 	{
         $this->authorize('update', $choice);
-		return view('choices.create_and_edit', compact('choice'));
+        $categories = Category::all();
+		return view('choices.create_and_edit', compact('choice', 'categories'));
 	}
 
 	public function update(ChoiceRequest $request, Choice $choice)
