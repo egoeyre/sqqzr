@@ -9,13 +9,10 @@ use App\Models\Blank;
 
 class BlankObserver
 {
-    public function creating(Blank $blank)
+    public function saving(Blank $blank)
     {
-        //
+        $blank->title = clean($blank->title, 'user_blank_title');
+
     }
 
-    public function updating(Blank $blank)
-    {
-        //
-    }
 }
