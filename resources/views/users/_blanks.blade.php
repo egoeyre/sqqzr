@@ -1,15 +1,15 @@
-@if (count($choices))
+@if (count($blanks))
 
 <ul class="list-group">
-    @foreach ($choices as $choice)
+    @foreach ($blanks as $blank)
         <li class="list-group-item">
-            <a href="{{ route('choices.show', $choice->id) }}">
-                {{ $choice->title }}
+            <a href="{{ route('blanks.show', $blank->id) }}">
+                {{ $blank->title }}
             </a>
             <span class="meta pull-right">
-                {{ $choice->category->name }} 
+                {{ $blank->bcategory->name }} 
                 <span> ⋅ </span>
-                {{ $choice->created_at->diffForHumans() }}
+                {{ $blank->created_at->diffForHumans() }}
             </span>
         </li>
     @endforeach
@@ -20,4 +20,4 @@
 @endif
 
 {{-- 分页 --}}
-{!! $choices->render() !!}
+{!! $blanks->render() !!}

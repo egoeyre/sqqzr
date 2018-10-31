@@ -14,10 +14,9 @@
         @endif
         <div class="panel panel-default">
             <div class="panel-heading">
-                <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="#">最后回复</a></li>
-                    <li role="presentation"><a href="#">最新发布</a></li>
-                </ul>
+                <a href="{{ route('blanks.create', Auth::id()) }}" class="btn btn-success" role="button">
+                    新建
+                </a>
             </div>
 
             <div class="panel-body">

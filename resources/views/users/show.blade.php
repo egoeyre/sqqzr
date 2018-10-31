@@ -39,12 +39,18 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <ul class="nav nav-tabs">
-                    <li class="active"><a href="#">Ta 出的选择题</a></li>
-                    <li><a href="#">Ta 出的填空题</a></li>
-                    <li><a href="#">Ta 出的问答题</a></li>
-                    <li><a href="#">Ta 出的报告单</a></li>
+                    <li class="{{ active_class(if_query('tab', null)) }}"><a href="{{ route('users.show', $user->id) }}">Ta 出的选择题</a></li>
+                    <li class="{{ active_class(if_query('tab', 'blanks')) }}"><a href="{{ route('users.show', [$user->id, 'tab' => 'blanks']) }}">Ta 出的填空题</a></li>
+                    <li class="{{ active_class(if_query('tab', 'questions')) }}"><a href="{{ route('users.show', [$user->id, 'tab' => 'questions']) }}">Ta 出的问答题</a></li>
                 </ul>
-                @include('users._choices', ['choices' => $user->choices()->recent()->paginate(10)])
+                @if (if_query('tab', 'blanks'))
+                    @include('users._blanks', ['blanks' => $user->blanks()->recent()->paginate(10)])
+                @elseif (if_query('tab', 'questions'))
+                    @include('users._questions', ['questions' => $user->questions()->recent()->paginate(10)])
+                @else
+                    @include('users._choices', ['choices' => $user->choices()->recent()->paginate(10)])
+                @endif
+                
             </div>
         </div>
 
