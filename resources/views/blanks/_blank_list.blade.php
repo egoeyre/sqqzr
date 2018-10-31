@@ -22,7 +22,7 @@
                     
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $blank->bcategory->name }}">
+                        <a href="{{ route('bcategories.show', $blank->bcategory->id) }}" title="{{ $blank->bcategory->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                              {{ $blank->bcategory->name }}
                         </a>

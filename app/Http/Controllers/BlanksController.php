@@ -19,7 +19,7 @@ class BlanksController extends Controller
 	public function index()
 	{
 		$blanks = Blank::with('user', 'bcategory')->paginate(30);
-		// dd($blanks);
+		 // dd($blanks);
 		return view('blanks.index', compact('blanks'));
 	}
 

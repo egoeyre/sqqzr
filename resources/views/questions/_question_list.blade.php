@@ -23,7 +23,7 @@
                     
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $question->qcategory->name }}">
+                        <a href="{{ route('qcategories.show', $question->qcategory->id) }}" title="{{ $question->qcategory->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                              {{ $question->qcategory->name }}
                         </a>

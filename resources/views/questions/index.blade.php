@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@section('title', isset($qcategory) ? $qcategory->name . '问答题' : '话题列表')
 
 @section('title', '话题列表')
 
@@ -6,8 +7,12 @@
 
 <div class="row">
     <div class="col-lg-9 col-md-9 question-list">
+        @if (isset($qcategory))
+            <div class="alert alert-info" role="alert">
+                {{ $qcategory->name }} ：{{ $qcategory->description }}
+            </div>
+        @endif
         <div class="panel panel-default">
-
             <div class="panel-heading">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">最后回复</a></li>

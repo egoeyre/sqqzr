@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
-@section('title', '话题列表')
+@section('title', isset($bcategory) ? $bcategory->name . '填空题' : '填空题列表')
 
 @section('content')
 
 <div class="row">
     <div class="col-lg-9 col-md-9 blank-list">
+        
+         @if (isset($bcategory))
+            <div class="alert alert-info" role="alert">
+                {{ $bcategory->name }} ：{{ $bcategory->description }}
+            </div>
+        @endif
         <div class="panel panel-default">
-
             <div class="panel-heading">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">最后回复</a></li>
