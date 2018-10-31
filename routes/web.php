@@ -24,7 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit']]);
 
 Route::resource('choices', 'ChoicesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
-
+Route::resource('choices/categories', 'CategoriesController', ['only' => ['show']]);
 
 Route::resource('blanks', 'BlanksController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::resource('questions', 'QuestionsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

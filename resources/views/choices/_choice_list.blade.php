@@ -29,7 +29,7 @@
                     
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $choice->category->name }}">
+                        <a href="{{ route('categories.show', $choice->category->id) }}" title="{{ $choice->category->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                              {{ $choice->category->name }}
                         </a>

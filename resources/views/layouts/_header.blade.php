@@ -19,7 +19,9 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                &nbsp;
+                <li class="{{ active_class(if_route('choices.index')) }}"><a href="{{ route('choices.index') }}">选择题</a></li>
+                <li class="{{ active_class(if_route('blanks.index')) }}"><a href="{{ route('blanks.index') }}">填空题</a></li>
+                <li class="{{ active_class(if_route('questions.index')) }}"><a href="{{ route('questions.index') }}">问答题</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
