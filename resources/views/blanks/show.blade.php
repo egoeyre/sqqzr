@@ -28,8 +28,8 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h1 class="text-center">
-                    {{ $blank->category->name }}填空题
-                </h1>
+                    {{ $blank->bcategory->name }}填空题
+                </h1>s
 
                 <div class="article-meta text-center">
                     {{ $blank->created_at }}

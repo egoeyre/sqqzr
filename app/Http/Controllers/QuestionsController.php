@@ -6,7 +6,7 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionRequest;
-use App\Models\Category;
+use App\Models\Qcategory;
 use Auth;
 
 class QuestionsController extends Controller
@@ -19,7 +19,7 @@ class QuestionsController extends Controller
 	
 	public function index()
 	{
-		$questions = Question::with('user', 'category')->paginate(30);
+		$questions = Question::with('user', 'qcategory')->paginate(30);
 		return view('questions.index', compact('questions'));
 	}
 
@@ -30,8 +30,8 @@ class QuestionsController extends Controller
 
 	public function create(Question $question)
 	{
-		$categories = Category::all();
-		return view('questions.create_and_edit', compact('question', 'categories'));
+		$qcategories = Qcategory::all();
+		return view('questions.create_and_edit', compact('question', 'qcategories'));
 	}
 
 	public function store(QuestionRequest $request, Question $question)
@@ -45,8 +45,8 @@ class QuestionsController extends Controller
 	public function edit(QuestionRequest $request, Question $question)
 	{
         $this->authorize('update', $question);
-        $categories = Category::all();
-		return view('questions.create_and_edit', compact('question', 'categories'));
+        $qcategories = Qcategory::all();
+		return view('questions.create_and_edit', compact('question', 'qcategories'));
 	}
 
 	public function update(QuestionRequest $request, Question $question)

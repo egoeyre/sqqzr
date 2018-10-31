@@ -4,11 +4,11 @@ namespace App\Models;
 
 class Question extends Model
 {
-    protected $fillable = ['category_id', 'title', 'answer'];
+    protected $fillable = ['qcategory_id', 'title', 'answer'];
 
-    public function category()
+    public function qcategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Qcategory::class);
     }
 
     public function user()

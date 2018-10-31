@@ -22,9 +22,9 @@
                     
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $blank->category->name }}">
+                        <a href="#" title="{{ $blank->bcategory->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                             {{ $blank->category->name }}
+                             {{ $blank->bcategory->name }}
                         </a>
 
                         <span> • </span>

@@ -4,11 +4,11 @@ namespace App\Models;
 
 class Blank extends Model
 {
-    protected $fillable = ['category_id', 'title', 'answer', 'amount'];
+    protected $fillable = ['bcategory_id', 'title', 'answer', 'amount'];
 
-    public function category()
+    public function bcategory()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Bcategory::class);
     }
 
     public function user()

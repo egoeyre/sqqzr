@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class SeedBCategoriesData extends Migration
+class SeedQcategoriesData extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class SeedBCategoriesData extends Migration
      */
     public function up()
     {
-        $b_categories = [
+        $qcategories = [
             [
                 'name'        => '基础',
                 'description' => '资质认定基础部分',
@@ -32,16 +32,11 @@ class SeedBCategoriesData extends Migration
             ],
         ];
 
-        DB::table('b_categories')->insert($b_categories);
+        DB::table('qcategories')->insert($qcategories);
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        DB::table('b_categories')->truncate();
+        DB::table('qcategories')->truncate();
     }
 }

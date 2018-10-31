@@ -15,7 +15,7 @@ class BlankRequest extends Request
             case 'PATCH':
             {
                 return [
-                    'category_id' => 'required|numeric',
+                    'bcategory_id' => 'required|numeric',
                     'title' => 'required|min:3',
                     'answer' => 'required|min:1',
                     'amount' => 'required|numeric'

@@ -28,7 +28,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <h1 class="text-center">
-                    {{ $question->category->name }}问答题
+                    {{ $question->qcategory->name }}问答题
                 </h1>
 
                 <div class="article-meta text-center">

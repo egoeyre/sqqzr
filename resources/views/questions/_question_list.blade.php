@@ -23,9 +23,9 @@
                     
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $question->category->name }}">
+                        <a href="#" title="{{ $question->qcategory->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
-                             {{ $question->category->name }}
+                             {{ $question->qcategory->name }}
                         </a>
 
                         <span> • </span>

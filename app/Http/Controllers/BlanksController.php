@@ -6,7 +6,7 @@ use App\Models\Blank;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlankRequest;
-use App\Models\Category;
+use App\Models\Bcategory;
 use Auth;
 
 class BlanksController extends Controller
@@ -18,7 +18,8 @@ class BlanksController extends Controller
 
 	public function index()
 	{
-		$blanks = Blank::with('user', 'category')->paginate(30);
+		$blanks = Blank::with('user', 'bcategory')->paginate(30);
+		// dd($blanks);
 		return view('blanks.index', compact('blanks'));
 	}
 
@@ -29,8 +30,8 @@ class BlanksController extends Controller
 
 	public function create(Blank $blank)
 	{
-		$categories = Category::all();
-		return view('blanks.create_and_edit', compact('blank', 'categories'));
+		$bcategories = BCategory::all();
+		return view('blanks.create_and_edit', compact('blank', 'bcategories'));
 	}
 
 	public function store(BlankRequest $request, Blank $blank)
@@ -44,8 +45,8 @@ class BlanksController extends Controller
 	public function edit(BlankRequest $request, Blank $blank)
 	{
         $this->authorize('update', $blank);
-        $categories = Category::all();
-		return view('blanks.create_and_edit', compact('blank', 'categories'));
+        $bcategories = Bcategory::all();
+		return view('blanks.create_and_edit', compact('blank', 'bcategories'));
 	}
 
 	public function update(BlankRequest $request, Blank $blank)

@@ -13,7 +13,7 @@ class CreateBCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('b_categories', function (Blueprint $table) {
+        Schema::create('bcategories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->index()->comment('名称');
             $table->text('description')->nullable()->comment('描述');
@@ -29,6 +29,6 @@ class CreateBCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('b_categories');
+        Schema::dropIfExists('bcategories');
     }
 }

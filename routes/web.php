@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/pdf', 'PDFController@make');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -23,6 +25,6 @@ Route::resource('users', 'UsersController', ['only' => ['show', 'update', 'edit'
 
 Route::resource('choices', 'ChoicesController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 
-Route::get('/pdf', 'PDFController@make');
+
 Route::resource('blanks', 'BlanksController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::resource('questions', 'QuestionsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
