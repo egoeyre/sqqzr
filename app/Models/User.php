@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasmany(Question::class);
     }
 
+    public function papers()
+    {
+        return $this->hasmany(Paper::class);
+    }
+
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;

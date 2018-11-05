@@ -31,3 +31,5 @@ Route::resource('blanks/bcategories', 'BcategoriesController', ['only' => ['show
 
 Route::resource('questions', 'QuestionsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
 Route::resource('questions/qcategories', 'QcategoriesController', ['only' => ['show']]);
+
+Route::resource('papers', 'PapersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
