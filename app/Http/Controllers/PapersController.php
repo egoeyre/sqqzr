@@ -6,6 +6,7 @@ use App\Models\Paper;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaperRequest;
+use Auth;
 
 class PapersController extends Controller
 {
@@ -16,7 +17,9 @@ class PapersController extends Controller
 
 	public function index()
 	{
-		$papers = Paper::paginate();
+		// $blanks = Blank::where('bcategory_id', $bcategory->id)->paginate(20);
+		$user_id = Auth::id();
+		$papers = Paper::where('user_id', $user_id)->with('user', 'category')->paginate(20);
 		return view('papers.index', compact('papers'));
 	}
 

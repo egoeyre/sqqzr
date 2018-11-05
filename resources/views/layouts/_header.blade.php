@@ -22,6 +22,7 @@
                 <li class="{{ active_class(if_route('choices.index')) }}"><a href="{{ route('choices.index') }}">选择题</a></li>
                 <li class="{{ active_class(if_route('blanks.index')) }}"><a href="{{ route('blanks.index') }}">填空题</a></li>
                 <li class="{{ active_class(if_route('questions.index')) }}"><a href="{{ route('questions.index') }}">问答题</a></li>
+                <li class="{{ active_class(if_route('papers.index')) }}"><a href="{{ route('papers.index') }}">我的试卷</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
