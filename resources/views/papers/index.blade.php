@@ -9,10 +9,10 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                <ul class="nav nav-pills">
-                    <li role="presentation" class="active"><a href="#">最后回复</a></li>
-                    <li role="presentation"><a href="#">最新发布</a></li>
-                </ul>
+                 <div class="panel-heading">
+                <a href="{{ route('papers.create', Auth::id()) }}" class="btn btn-success" role="button">
+                    生成试卷
+                </a>
             </div>
 
             <div class="panel-body">

@@ -4,7 +4,7 @@ namespace App\Models;
 
 class Paper extends Model
 {
-    protected $fillable = ['title', 'user_id', 'category_id', 'choice_amount', 'choice_score', 'bcategory_id', 'blank_amount', 'blank_score', 'qcategory_id', 'question_amount', 'question_score', 'paper_address', 'answer_address'];
+    protected $fillable = ['title', 'category_id', 'choice_amount', 'choice_score', 'blank_amount', 'blank_score', 'question_amount', 'question_score', 'paper_address', 'answer_address'];
 
     public function user()
     {

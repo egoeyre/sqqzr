@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaperRequest;
 use Auth;
+use App\Models\Category;
+use App\Models\Choice;
+use App\Models\Blank;
+use App\Models\Question;
+use App\Handlers\PDFCreateHandler;
+
 
 class PapersController extends Controller
 {
@@ -30,12 +36,31 @@ class PapersController extends Controller
 
 	public function create(Paper $paper)
 	{
-		return view('papers.create_and_edit', compact('paper'));
+		$categories = Category::all();
+		return view('papers.create_and_edit', compact('paper', 'categories'));
 	}
 
-	public function store(PaperRequest $request)
+	public function store(PaperRequest $request, PDFCreateHandler $pdf, Paper $paper)
 	{
-		$paper = Paper::create($request->all());
+		
+		$paper->fill($request->all());
+		$paper->user_id = Auth::id();
+		$category = $paper->category_id;
+		// 随机生成指定数量的选择/填空/问答题
+		$choices = Choice::where('category_id', $category)->inRandomOrder() 
+                ->take($paper->choice_amount) 
+                ->get(); 
+        $blanks = Blank::where('bcategory_id', $category)->inRandomOrder() 
+                ->take($paper->blank_amount) 
+                ->get(); 
+        $questions = Question::where('qcategory_id', $category)->inRandomOrder() 
+                ->take($paper->question_amount) 
+                ->get(); 
+
+		$result = $pdf->make('papers', $paper, $category, $choices, $blanks, $questions);
+        $paper->paper_address = $result['paperpath'];
+        $paper->answer_address = $result['answerpath'];
+		$paper->save();
 		return redirect()->route('papers.show', $paper->id)->with('message', 'Created successfully.');
 	}
 

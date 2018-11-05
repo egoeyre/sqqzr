@@ -22,10 +22,8 @@
 
                     <div class="media-body meta">
 
-                        <a href="#" title="{{ $paper->category->name }}">
                             <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
                              {{ $paper->category->name }}
-                        </a>
 
                         <span> • </span>
                         <a href="{{ route('users.show', [$paper->user_id]) }}" title="{{ $paper->user->name }}">
