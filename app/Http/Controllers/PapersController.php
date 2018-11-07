@@ -50,9 +50,41 @@ class PapersController extends Controller
 		$choices = Choice::where('category_id', $category)->inRandomOrder() 
                 ->take($paper->choice_amount) 
                 ->get(); 
-        $blanks = Blank::where('bcategory_id', $category)->inRandomOrder() 
-                ->take($paper->blank_amount) 
-                ->get(); 
+        // $blanks = Blank::where('bcategory_id', $category)->inRandomOrder() 
+        //         ->take($paper->blank_amount) 
+        //         ->get(); 
+       	
+       	//按照空格数确认填空题
+       	$i = $paper->blank_amount;
+       	$blanks = array();
+       	do
+		{
+			
+			switch ($i){
+				case 1:
+				  $blank = Blank::where('bcategory_id', $category)->where('amount', 1)->inRandomOrder()->first();
+				  $i -= $blank->amount;
+				  $blanks[] = $blank;			  
+				  break;
+				case 2:
+				  $blank = Blank::where('bcategory_id', $category)->where('amount', 2)->inRandomOrder()->first();
+				  $i -= $blank->amount;
+				  $blanks[] = $blank;				
+				  break;
+				case 3:
+				  $blank = Blank::where('bcategory_id', $category)->where('amount', 3)->inRandomOrder()->first();
+				  $i -= $blank->amount;
+				  $blanks[] = $blank;			  
+				  break;
+				default:
+				  $blank = Blank::where('bcategory_id', $category)->inRandomOrder()->first();
+			      $i -= $blank->amount;
+			      $blanks[] = $blank;
+			      }
+		}
+		while ($i > 0);
+
+
         $questions = Question::where('qcategory_id', $category)->inRandomOrder() 
                 ->take($paper->question_amount) 
                 ->get(); 
@@ -61,6 +93,7 @@ class PapersController extends Controller
         $paper->paper_address = $result['paperpath'];
         $paper->answer_address = $result['answerpath'];
 		$paper->save();
+		
 		return redirect()->route('papers.show', $paper->id)->with('message', 'Created successfully.');
 	}
 
@@ -70,13 +103,6 @@ class PapersController extends Controller
 		return view('papers.create_and_edit', compact('paper'));
 	}
 
-	public function update(PaperRequest $request, Paper $paper)
-	{
-		$this->authorize('update', $paper);
-		$paper->update($request->all());
-
-		return redirect()->route('papers.show', $paper->id)->with('message', 'Updated successfully.');
-	}
 
 	public function destroy(Paper $paper)
 	{

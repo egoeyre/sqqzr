@@ -9,7 +9,6 @@
         <div class="panel panel-default">
 
             <div class="panel-heading">
-                 <div class="panel-heading">
                 <a href="{{ route('papers.create', Auth::id()) }}" class="btn btn-success" role="button">
                     生成试卷
                 </a>
@@ -23,10 +22,11 @@
             </div>
         </div>
     </div>
-
     <div class="col-lg-3 col-md-3 sidebar">
         @include('papers._sidebar')
     </div>
+    
 </div>
+
 
 @endsection

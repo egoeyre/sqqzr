@@ -18,14 +18,20 @@ class PDFCreateHandler
 		$categoryname = Category::findorfail($category)->name;
 
 
-		$papername = $categoryname . '_' . $paper->title .'_'. $paper->user_id . '_' . time() . '_' .  '.pdf';
-		
+		$papername = $categoryname . '_' . $paper->title .'_'. $paper->user_id . '_' . time() .  '.pdf';
+		$answername = $categoryname . '答案_' . $paper->title .'_'. $paper->user_id . '_' . time() .  '.pdf';
 		//$answer_name = $file_prefix . '_' . time() . '_' . $category . $name . '答案.pdf';
 
         // dd($choices);
-        $html_paper = view('pdf.papers', compact('paper','choices','blanks','questions'));
-        // $html_answer = view('pdf.answer', compact('choices','blanks','questions'));
-    	PDF::loadHTML($html_paper)->save("$folder_name/$papername");
+        $html_paper = view('pdf.paper', compact('paper', 'choices', 'blanks', 'questions', 'categoryname'));
+        $html_answer = view('pdf.answer', compact('paper', 'choices', 'blanks', 'questions', 'categoryname'));
+    	PDF::loadHTML($html_paper)
+            ->setOption('margin-bottom', 25)
+            ->setOption('margin-left', 19)
+            ->setOption('margin-right', 19)
+            ->setOption('margin-top', 25)
+            ->save("$folder_name/$papername");
+        PDF::loadHTML($html_answer)->save("$folder_name/$answername");
 
 
 
@@ -33,7 +39,7 @@ class PDFCreateHandler
 
     	return [
             'paperpath' => config('app.url') . "/$folder_name/$papername",
-            'answerpath' => config('app.url') . "/$folder_name/$papername",
+            'answerpath' => config('app.url') . "/$folder_name/$answername",
         ];
 
 	}

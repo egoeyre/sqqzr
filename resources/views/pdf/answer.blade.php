@@ -15,10 +15,6 @@
 </head>
 
 <body>
-    <table class="table table-bordered">
-        <tr><td>姓名</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>姓名</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-        <tr><td>姓名</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>姓名</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-    </table>
     
 
     <div>
@@ -26,14 +22,7 @@
         <ol>
             @foreach ($choices as $choice)
             <li>
-                
-                <p>{{ $choice->title  }}</p>
-                 <ol type="A">
-                    <li><p>{{ $choice->optiona }}</p></li>
-                    <li><p>{{ $choice->optionb }}</p></li>
-                    <li><p>{{ $choice->optionc }}</p></li>
-                    <li><p>{{ $choice->optiond }}</p></li>
-                </ol>
+                <p>{{ $choice->answer  }}</p>
             </li>
             @endforeach
         </ol> 
@@ -44,7 +33,7 @@
         <ol>
             @foreach ($blanks as $blank)
             <li>
-                <p>{{ $blank->title  }}</p>
+                <p>{{ $blank->answer  }}</p>
             </li>
             @endforeach
         </ol> 
@@ -55,8 +44,7 @@
         <ol>
             @foreach ($questions as $question)
             <li>
-                <p>{{ $question->title  }}</p>
-                <br><br><br><br><br><br><br><br><br><br><br>
+                <p>{{ $question->answer  }}</p>
             </li>
 
             @endforeach

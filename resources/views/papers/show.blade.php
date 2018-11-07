@@ -1,71 +1,80 @@
 @extends('layouts.app')
 
+@section('title', $paper->title)
+
 @section('content')
 
-<div class="container">
-    <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h1>Paper / Show #{{ $paper->id }}</h1>
-            </div>
+<div class="row">
 
+    <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
+        <div class="panel panel-default">
             <div class="panel-body">
-                <div class="well well-sm">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a class="btn btn-link" href="{{ route('papers.index') }}"><i class="glyphicon glyphicon-backward"></i> Back</a>
-                        </div>
-                        <div class="col-md-6">
-                             <a class="btn btn-sm btn-warning pull-right" href="{{ route('papers.edit', $paper->id) }}">
-                                <i class="glyphicon glyphicon-edit"></i> Edit
-                            </a>
-                        </div>
+                <div class="text-center">
+                    作者：{{ $paper->user->name }}
+                </div>
+                <hr>
+                <div class="media">
+                    <div align="center">
+                        <a href="{{ route('users.show', $paper->user->id) }}">
+                            <img class="thumbnail img-responsive" src="{{ $paper->user->avatar }}" width="300px" height="300px">
+                        </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <label>Title</label>
-<p>
-	{{ $paper->title }}
-</p> <label>User_id</label>
-<p>
-	{{ $paper->user_id }}
-</p> <label>Category_id</label>
-<p>
-	{{ $paper->category_id }}
-</p> <label>Choice_amount</label>
-<p>
-	{{ $paper->choice_amount }}
-</p> <label>Choice_score</label>
-<p>
-	{{ $paper->choice_score }}
-</p> <label>Bcategory_id</label>
-<p>
-	{{ $paper->bcategory_id }}
-</p> <label>Blank_amount</label>
-<p>
-	{{ $paper->blank_amount }}
-</p> <label>Blank_score</label>
-<p>
-	{{ $paper->blank_score }}
-</p> <label>Qcategory_id</label>
-<p>
-	{{ $paper->qcategory_id }}
-</p> <label>Question_amount</label>
-<p>
-	{{ $paper->question_amount }}
-</p> <label>Question_score</label>
-<p>
-	{{ $paper->question_score }}
-</p> <label>Paper_address</label>
-<p>
-	{{ $paper->paper_address }}
-</p> <label>Answer_address</label>
-<p>
-	{{ $paper->answer_address }}
-</p>
+    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 paper-content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h1 class="text-center">
+                    {{ $paper->title }} 
+                </h1>
+
+                <div class="article-meta text-center">
+                    {{ $paper->created_at }}
+                </div>
+
+                <div class="paper-body">
+                    <h3>{{ $paper->title }} {{ $paper->category->name }} 考试试题
+                    共 {{ $paper->choice_amount * $paper->choice_score + $paper->blank_amount * $paper->blank_score + $paper->question_amount * $paper->question_score}} 分</h3>
+                    <p>
+                        选择题数量 {{ $paper->choice_amount }}，每题 {{ $paper->choice_score }} 分，共 {{ $paper->choice_amount * $paper->choice_score }} 分；
+                    </p> 
+                    <p>
+                        填空题空数 {{ $paper->blank_amount }}，每空 {{ $paper->blank_score }} 分，共 {{ $paper->blank_amount * $paper->blank_score }} 分；
+                    </p> 
+                    <p>
+                        问答题数量 {{ $paper->question_amount }}，每题 {{ $paper->question_score }} 分，共 
+                    {{ $paper->question_amount * $paper->question_score }} 分。
+                    <hr>
+                    <p>下载点击鼠标右键 链接另存为...</p>
+                    <p>
+                        <a href="{{ $paper->paper_address }}">试卷下载</a> 
+                    </p> 
+                    <p>
+                        <a href="{{ $paper->answer_address }}">答案下载</a>
+                    </p>
+                    
+                </div>
+
+                <div class="operate">
+                @can('destroy', $paper)
+                    <hr>
+                       <form action="{{ route('papers.destroy', $paper->id) }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="btn btn-default btn-xs pull-left" style="margin-left: 6px">
+                                <i class="glyphicon glyphicon-trash"></i>
+                                删除
+                            </button>
+                        </form>
+                    </div>
+                @endcan
+                </div>
+
             </div>
         </div>
     </div>
 </div>
-
-@endsection
+@stop
