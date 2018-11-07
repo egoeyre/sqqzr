@@ -45,17 +45,17 @@
                         </li>
                         <li>
                             <a href="{{ route('choices.create', Auth::id()) }}">                            
-                                添加选择题
+                                选择题
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('blanks.create', Auth::id()) }}">                          
-                                添加填空题
+                                填空题
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('questions.create', Auth::id()) }}">
-                                添加问答题
+                                问答题
                             </a>
                         </li>
 

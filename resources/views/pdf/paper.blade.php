@@ -20,9 +20,11 @@
     <h3 class="text-center">授权签字人考试试卷</h3>
     <table class="table table-bordered">
         <tr><td>姓名</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td>身份证号</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
-        <tr><td colspan="2">工作单位</td><td colspan="2">泰安市东岳机动车检测有限公司</td></tr>
-        <tr><td colspan="2">申请签字领域</td><td colspan="2">安检 综检 环检</td></tr>
-        <tr><td colspan="2">与签字领域有关的最高学历</td><td colspan="2">_______年毕业于_______________________(学校)____________________专业</td></tr>
+        <tr><td colspan="2">工作单位</td><td colspan="2">{{ $paper->title }}</td></tr>
+        <tr><td colspan="2">申请签字领域</td><td colspan="2"><label>
+              <input type="checkbox"> 环检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="checkbox"> 安检&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="checkbox"> 综检 
+          </label></td></tr>
+        <tr><td colspan="2">与签字领域有关的最高学历</td><td colspan="2">_______年___月毕业于_____________________(学校)__________________专业</td></tr>
         <tr><td colspan="2">相关资格</td><td colspan="2">
           <label>
               <input type="checkbox"> 工程师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="checkbox"> 高级工程师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <input type="checkbox"> 技师 

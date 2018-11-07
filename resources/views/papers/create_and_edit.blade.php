@@ -63,11 +63,11 @@
                     <hr>
                     <div class="row">
                         <div class="form-group  col-md-6">
-                            <label for="blank_amount-field">填空题数量</label>
+                            <label for="blank_amount-field">填空题总空数</label>
                             <input class="form-control" type="text" name="blank_amount" id="blank_amount-field" value="{{ old('blank_amount', $paper->blank_amount ) }}" />
                         </div> 
                         <div class="form-group col-md-6">
-                            <label for="blank_score-field">填空题分值</label>
+                            <label for="blank_score-field">每空分值</label>
                             <input class="form-control" type="text" name="blank_score" id="blank_score-field" value="{{ old('blank_score', $paper->blank_score ) }}" />
                         </div> 
                     </div>
@@ -87,7 +87,7 @@
                     
 
                     <div class="well well-sm">
-                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 保存</button>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> 生成试卷</button>
                     </div>
                 </form>
             </div>
