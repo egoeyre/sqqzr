@@ -38,12 +38,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="title-field">题目</label>
+                        <label for="title-field">题目（ 填空位置建议用 ___________ 表示。 ）</label>
                         <textarea name="title" id="title-field" class="form-control" rows="3" placeholder="请填写题目" required>{{ old('title', $blank->title ) }}</textarea>
                     </div> 
                     <div class="form-group">
-                        <label for="answer-field">正确答案</label>
-                        <input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" placeholder="请填写正确答案，不同填空内容建议用/分隔" required/>
+                        <label for="answer-field">正确答案（ 不同填空内容建议用/分隔 ）</label>
+                        <input class="form-control" type="text" name="answer" id="answer-field" value="{{ old('answer', $blank->answer ) }}" placeholder="请填写正确答案。" required/>
                     </div>
                     <div class="form-group">
                         <label for="amount-field">填空数量</label>

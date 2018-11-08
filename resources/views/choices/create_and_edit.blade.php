@@ -38,7 +38,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="title-field">题目</label>
+                        <label for="title-field">题目（ 选项位置建议用 ___________ 表示。）</label>
                         <textarea name="title" id="title-field" class="form-control" rows="3" placeholder="请填写题目" required>{{ old('title', $choice->title ) }}</textarea>
                     </div> 
                     <div class="form-group">

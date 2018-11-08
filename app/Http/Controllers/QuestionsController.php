@@ -39,7 +39,7 @@ class QuestionsController extends Controller
 		$question->fill($request->all());
         $question->user_id = Auth::id();
         $question->save();
-		return redirect()->route('questions.show', $question->id)->with('message', 'Created successfully.');
+		return redirect()->route('questions.show', $question->id)->with('message', '创建成功！');
 	}
 
 	public function edit(QuestionRequest $request, Question $question)
@@ -54,7 +54,7 @@ class QuestionsController extends Controller
 		$this->authorize('update', $question);
 		$question->update($request->all());
 
-		return redirect()->route('questions.show', $question->id)->with('message', 'Updated successfully.');
+		return redirect()->route('questions.show', $question->id)->with('message', '更新成功！');
 	}
 
 	public function destroy(Question $question)
@@ -62,6 +62,6 @@ class QuestionsController extends Controller
 		$this->authorize('destroy', $question);
 		$question->delete();
 
-		return redirect()->route('questions.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('questions.index')->with('message', '删除成功！');
 	}
 }

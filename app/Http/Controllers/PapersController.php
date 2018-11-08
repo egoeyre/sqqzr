@@ -94,7 +94,7 @@ class PapersController extends Controller
         $paper->answer_address = $result['answerpath'];
 		$paper->save();
 		
-		return redirect()->route('papers.show', $paper->id)->with('message', 'Created successfully.');
+		return redirect()->route('papers.show', $paper->id)->with('message', '生成成功！');
 	}
 
 	public function edit(Paper $paper)
@@ -109,6 +109,6 @@ class PapersController extends Controller
 		$this->authorize('destroy', $paper);
 		$paper->delete();
 
-		return redirect()->route('papers.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('papers.index')->with('message', '删除成功！');
 	}
 }

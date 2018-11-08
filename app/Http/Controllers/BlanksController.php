@@ -39,7 +39,7 @@ class BlanksController extends Controller
 		$blank->fill($request->all());
         $blank->user_id = Auth::id();
         $blank->save();
-		return redirect()->route('blanks.show', $blank->id)->with('message', 'Created successfully.');
+		return redirect()->route('blanks.show', $blank->id)->with('message', '创建成功！');
 	}
 
 	public function edit(BlankRequest $request, Blank $blank)
@@ -54,7 +54,7 @@ class BlanksController extends Controller
 		$this->authorize('update', $blank);
 		$blank->update($request->all());
 
-		return redirect()->route('blanks.show', $blank->id)->with('message', 'Updated successfully.');
+		return redirect()->route('blanks.show', $blank->id)->with('message', '更新成功！');
 	}
 
 	public function destroy(Blank $blank)
@@ -62,6 +62,6 @@ class BlanksController extends Controller
 		$this->authorize('destroy', $blank);
 		$blank->delete();
 
-		return redirect()->route('blanks.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('blanks.index')->with('message', '删除成功！');
 	}
 }

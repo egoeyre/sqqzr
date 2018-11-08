@@ -41,7 +41,7 @@ class ChoicesController extends Controller
 		$choice->fill($request->all());
 		$choice->user_id = Auth::id();
 		$choice->save();
-		return redirect()->route('choices.show', $choice->id)->with('message', 'Created successfully.');
+		return redirect()->route('choices.show', $choice->id)->with('message', '创建成功！');
 	}
 
 	public function edit(ChoiceRequest $request, Choice $choice)
@@ -56,7 +56,7 @@ class ChoicesController extends Controller
 		$this->authorize('update', $choice);
 		$choice->update($request->all());
 
-		return redirect()->route('choices.show', $choice->id)->with('message', 'Updated successfully.');
+		return redirect()->route('choices.show', $choice->id)->with('message', '更新成功！');
 	}
 
 	public function destroy(Choice $choice)
@@ -64,6 +64,6 @@ class ChoicesController extends Controller
 		$this->authorize('destroy', $choice);
 		$choice->delete();
 
-		return redirect()->route('choices.index')->with('message', 'Deleted successfully.');
+		return redirect()->route('choices.index')->with('message', '删除成功！');
 	}
 }

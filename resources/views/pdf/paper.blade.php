@@ -57,7 +57,7 @@
     </div>
 
     <div>
-        <p><b>二 填空题</b>(共 {{ $paper->blank_amount }} 题，每题 {{ $paper->blank_score }} 分)</p>
+        <p><b>二 填空题</b>(共 {{ $paper->blank_amount }} 空，每空 {{ $paper->blank_score }} 分)</p>
         <ol>
             @foreach ($blanks as $blank)
             <li>
