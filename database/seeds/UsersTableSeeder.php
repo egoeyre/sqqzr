@@ -12,12 +12,12 @@ class UsersTableSeeder extends Seeder
 
         // 头像假数据
         $avatars = [
-            'http://sqqzr.test/uploads/1.png',
-            'http://sqqzr.test/uploads/2.png',
-            'http://sqqzr.test/uploads/3.png',
-            'http://sqqzr.test/uploads/4.png',
-            'http://sqqzr.test/uploads/5.png',
-            'http://sqqzr.test/uploads/6.png',
+            public_path() . '/uploads/1.png',
+            public_path() . '/uploads/2.png',
+            public_path() . '/uploads/3.png',
+            public_path() . '/uploads/4.png',
+            public_path() . '/uploads/5.png',
+            public_path() . '/uploads/6.png',
         ];
 
         // 生成数据集合
@@ -41,7 +41,7 @@ class UsersTableSeeder extends Seeder
         $user = User::find(1);
         $user->name = 'egoeyre';
         $user->email = 'egoeyre@yousails.com';
-        $user->avatar = 'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/ZqM7iaP4CR.png?imageView2/1/w/200/h/200';
+        $user->avatar = config('app.url') . '/uploads/6.png';
         $user->save();
 
     }
