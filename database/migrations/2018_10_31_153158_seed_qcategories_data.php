@@ -35,6 +35,11 @@ class SeedQcategoriesData extends Migration
         DB::table('qcategories')->insert($qcategories);
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
         DB::table('qcategories')->truncate();
