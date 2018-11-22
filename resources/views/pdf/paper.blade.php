@@ -33,7 +33,7 @@
     </table>
     @endif
     <div class="text-center">
-      <h4>{{ $categoryname }}部分</h4>
+      <h4>{{ $categoryhanzi }}部分</h4>
       (共  {{ $paper->choice_amount * $paper->choice_score + $paper->blank_amount * $paper->blank_score + $paper->question_amount * $paper->question_score }} 分)
     </div>
     
