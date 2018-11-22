@@ -75,16 +75,6 @@ class SeedUsersData extends Migration
 
             ],
             [
-                'id'        => '7',
-                'name'      => '安传新',
-                'email'     => '13969391379@163.com',
-                'password'  => '$2y$10$1h7GM.G678GfgmMO5ety7uk4TtRCX7Q7hhzq9.13SR/cqB08/gTTu',
-                'created_at'=> Carbon::yesterday()->toDateTimeString(),
-                'updated_at'=> Carbon::now()->toDateTimeString(),
-                'avatar'    => config('app.url') . '/uploads/6.png',
-
-            ],
-            [
                 'id'        => '8',
                 'name'      => '郭广沛',
                 'email'     => 'ggp227@sina.com',
@@ -94,26 +84,7 @@ class SeedUsersData extends Migration
                 'avatar'    => config('app.url') . '/uploads/6.png',
 
             ],
-            [
-                'id'        => '8',
-                'name'      => '陈威',
-                'email'     => 'zjschenwei@126.com',
-                'password'  => '$2y$10$1h7GM.G678GfgmMO5ety7uk4TtRCX7Q7hhzq9.13SR/cqB08/gTTu',
-                'created_at'=> Carbon::yesterday()->toDateTimeString(),
-                'updated_at'=> Carbon::now()->toDateTimeString(),
-                'avatar'    => config('app.url') . '/uploads/6.png',
-
-            ],
-            [
-                'id'        => '8',
-                'name'      => '蒋维凯',
-                'email'     => '18766666858@163.com',
-                'password'  => '$2y$10$1h7GM.G678GfgmMO5ety7uk4TtRCX7Q7hhzq9.13SR/cqB08/gTTu',
-                'created_at'=> Carbon::yesterday()->toDateTimeString(),
-                'updated_at'=> Carbon::now()->toDateTimeString(),
-                'avatar'    => config('app.url') . '/uploads/6.png',
-
-            ],
+            
             [
                 'id'        => '9',
                 'name'      => '刘继义',
@@ -185,9 +156,29 @@ class SeedUsersData extends Migration
 
             ],
             [
-                'id'        => '16',
+                'id'        => '17',
                 'name'      => '宋坤',
                 'email'     => 'rizhaohuaqiang@126.com',
+                'password'  => '$2y$10$1h7GM.G678GfgmMO5ety7uk4TtRCX7Q7hhzq9.13SR/cqB08/gTTu',
+                'created_at'=> Carbon::yesterday()->toDateTimeString(),
+                'updated_at'=> Carbon::now()->toDateTimeString(),
+                'avatar'    => config('app.url') . '/uploads/6.png',
+
+            ],
+            [
+                'id'        => '18',
+                'name'      => '陈威',
+                'email'     => 'zjschenwei@126.com',
+                'password'  => '$2y$10$1h7GM.G678GfgmMO5ety7uk4TtRCX7Q7hhzq9.13SR/cqB08/gTTu',
+                'created_at'=> Carbon::yesterday()->toDateTimeString(),
+                'updated_at'=> Carbon::now()->toDateTimeString(),
+                'avatar'    => config('app.url') . '/uploads/6.png',
+
+            ],
+            [
+                'id'        => '19',
+                'name'      => '蒋维凯',
+                'email'     => '18766666858@163.com',
                 'password'  => '$2y$10$1h7GM.G678GfgmMO5ety7uk4TtRCX7Q7hhzq9.13SR/cqB08/gTTu',
                 'created_at'=> Carbon::yesterday()->toDateTimeString(),
                 'updated_at'=> Carbon::now()->toDateTimeString(),
