@@ -1,13 +1,18 @@
 @extends('layouts.app')
 
-@section('title', '话题列表')
+@section('title', isset($tcategory) ? $tcategory->name : '话题列表')
 
 @section('content')
 
 <div class="row">
     <div class="col-lg-9 col-md-9 topic-list">
+        @if (isset($tcategory))
+            <div class="alert alert-info" role="alert">
+                {{ $tcategory->name }} ：{{ $tcategory->description }}
+            </div>
+        @endif
         <div class="panel panel-default">
-
+        
             <div class="panel-heading">
                 <ul class="nav nav-pills">
                     <li role="presentation" class="active"><a href="#">最后回复</a></li>

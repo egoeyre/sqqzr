@@ -33,4 +33,6 @@ Route::resource('questions', 'QuestionsController', ['only' => ['index', 'show',
 Route::resource('questions/qcategories', 'QcategoriesController', ['only' => ['show']]);
 
 Route::resource('papers', 'PapersController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::resource('tcategories', 'TcategoriesController', ['only' => ['show']]);
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);

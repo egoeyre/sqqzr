@@ -19,9 +19,22 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li class="{{ active_class(if_route('choices.index')) }}"><a href="{{ route('choices.index') }}">选择题</a></li>
-                <li class="{{ active_class(if_route('blanks.index')) }}"><a href="{{ route('blanks.index') }}">填空题</a></li>
-                <li class="{{ active_class(if_route('questions.index')) }}"><a href="{{ route('questions.index') }}">问答题</a></li>
+                <li class="{{ active_class((if_route('tcategories.show') && if_route_param('tcategory', 4))) }}"><a href="{{ route('tcategories.show', 4) }}">公告</a></li>
+                <li class="{{ active_class((if_route('tcategories.show') && if_route_param('tcategory', 1))) }}"><a href="{{ route('tcategories.show', 1) }}">分享</a></li>
+                <li class="{{ active_class((if_route('tcategories.show') && if_route_param('tcategory', 2))) }}"><a href="{{ route('tcategories.show', 2) }}">教程</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                        题库&nbsp&nbsp<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ active_class(if_route('choices.index')) }}"><a href="{{ route('choices.index') }}">选择题</a></li>
+                        <li class="{{ active_class(if_route('blanks.index')) }}"><a href="{{ route('blanks.index') }}">填空题</a></li>
+                        <li class="{{ active_class(if_route('questions.index')) }}"><a href="{{ route('questions.index') }}">问答题</a></li>
+                    </ul>
+                </li>
+                
+                
+                
                 <li class="{{ active_class(if_route('papers.index')) }}"><a href="{{ route('papers.index') }}">我的试卷</a></li>
             </ul>
 
@@ -32,10 +45,9 @@
                 <li><a href="{{ route('login') }}">登录</a></li>
                 <li><a href="{{ route('register') }}">注册</a></li>
                 @else
-                 <li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                         新建&nbsp&nbsp<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    </a>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
