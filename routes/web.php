@@ -36,3 +36,5 @@ Route::resource('papers', 'PapersController', ['only' => ['index', 'show', 'crea
 
 Route::resource('tcategories', 'TcategoriesController', ['only' => ['show']]);
 Route::resource('topics', 'TopicsController', ['only' => ['index', 'show', 'create', 'store', 'update', 'edit', 'destroy']]);
+
+Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
