@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', '授权签字人') - 授权签字人考试题库</title>
-
+    <title>@yield('title', 'BBS') - 评审工具箱</title>
+    <meta name="description" content="@yield('description', '评审员社区')" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('styles')
