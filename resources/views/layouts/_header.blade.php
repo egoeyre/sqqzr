@@ -55,6 +55,7 @@
                                 生成试卷
                             </a>
                         </li>
+                       
                         <li>
                             <a href="{{ route('choices.create', Auth::id()) }}">                            
                                 选择题
@@ -68,6 +69,11 @@
                         <li>
                             <a href="{{ route('questions.create', Auth::id()) }}">
                                 问答题
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('topics.create', Auth::id()) }}">                            
+                                创建话题
                             </a>
                         </li>
 

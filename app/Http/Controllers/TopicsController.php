@@ -6,6 +6,8 @@ use App\Models\Topic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
+use App\Models\Tcategory;
+use Auth;
 
 class TopicsController extends Controller
 {
@@ -27,14 +29,18 @@ class TopicsController extends Controller
 
 	public function create(Topic $topic)
 	{
-		return view('topics.create_and_edit', compact('topic'));
+		$tcategories = Tcategory::all();
+		return view('topics.create_and_edit', compact('topic', 'tcategories'));
 	}
 
-	public function store(TopicRequest $request)
-	{
-		$topic = Topic::create($request->all());
-		return redirect()->route('topics.show', $topic->id)->with('message', 'Created successfully.');
-	}
+	public function store(TopicRequest $request, Topic $topic)
+    {
+        $topic->fill($request->all());
+        $topic->user_id = Auth::id();
+        $topic->save();
+
+        return redirect()->route('topics.show', $topic->id)->with('message', '创建话题成功');
+    }
 
 	public function edit(Topic $topic)
 	{
