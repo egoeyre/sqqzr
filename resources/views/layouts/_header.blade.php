@@ -24,7 +24,7 @@
                 <li class="{{ active_class((if_route('tcategories.show') && if_route_param('tcategory', 2))) }}"><a href="{{ route('tcategories.show', 2) }}">教程</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                        题库&nbsp&nbsp<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        题库&nbsp&nbsp<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li class="{{ active_class(if_route('choices.index')) }}"><a href="{{ route('choices.index') }}">选择题</a></li>
