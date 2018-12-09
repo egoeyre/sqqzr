@@ -5,6 +5,12 @@ namespace App\Models;
 class Topic extends Model
 {
     protected $fillable = ['title', 'body', 'tcategory_id', 'excerpt', 'slug'];
+    
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
+    
     public function tcategory()
     {
         return $this->belongsTo(Tcategory::class);
