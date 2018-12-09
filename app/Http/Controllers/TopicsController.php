@@ -17,7 +17,7 @@ class TopicsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
-	public function index()
+	public function index(Request $request, Topic $topic)
 	{
 		$topics = $topic->withOrder($request->order)->paginate(20);
         return view('topics.index', compact('topics'));
@@ -47,7 +47,7 @@ class TopicsController extends Controller
 	{
         $this->authorize('update', $topic);
         $tcategories = Tcategory::all();
-		return view('topics.create_and_edit', compact('topic', 'categories'));
+		return view('topics.create_and_edit', compact('topic', 'tcategories'));
 	}
 
 	public function update(TopicRequest $request, Topic $topic)
